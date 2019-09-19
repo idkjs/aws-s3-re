@@ -131,7 +131,7 @@ module Make = (Io: Types.Io) => {
       Deferred.Or_error.catch @@
       (
         () => {
-          let ini = (new OcamlInifiles.inifile)(creds_file);
+          let ini = (new Inifiles.inifile)(creds_file);
           let access_key = ini#getval(profile, "aws_access_key_id");
           let secret_key = ini#getval(profile, "aws_secret_access_key");
           make(~access_key, ~secret_key, ()) |> Deferred.Or_error.return;
